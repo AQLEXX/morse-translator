@@ -1,3 +1,3 @@
-import cli
-def decode(s):
-    return ''.join(cli.DICTIONARY_REVERSED.get(i) for i in s.split())
+from cli import DICTIONARY_REVERSED
+def from_morse(s):
+    return ''.join(DICTIONARY_REVERSED.get(i) for i in s.split()).lower()
