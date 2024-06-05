@@ -25,6 +25,7 @@ DICTIONARY = {  'А':'.-', 'Б':'-...','В':'.--',
 DICTIONARY_REVERSED = {value: key for key, value in DICTIONARY.items()}
 
 import decode, code_1
+from datetime import datetime
 
 # Цикл для повторение программы без перезапуска
 while True:
@@ -53,14 +54,23 @@ while True:
     if select_mode == 2:
         if select_input_type == 1:
             message = input('Введите сообщение: ')
-            print(code_1.to_morse(message))
+            d = code_1.to_morse(message)
+            print("Ваш текст: ", message)
+            print("Морзе: ", d)
         elif select_input_type == 2:
             print('Поместите файл с текстом в корневую папку программы.')
             s = input('Укажите название файла: ') + '.txt'
             with open(s, 'r', encoding='utf-8') as f:
                 data = f.read()
-            print("Морзе: ", code_1.to_morse(data))
+            d = code_1.to_morse(data)
+            print("Морзе: ", d)
             print("Текст в файле: ", data)
+        save_as_txt = input('Хотите сохранить ваше сообщение в .txt файл? (y/n): ')
+        if save_as_txt == "y":
+            with open("code" + str(datetime.now()), 'x') as c:
+                c.write(d)
+        else:
+            continue
 
     # вывод декодирования
     elif select_mode == 1:
