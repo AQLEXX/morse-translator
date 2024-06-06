@@ -60,15 +60,15 @@ while True:
         elif select_input_type == 2:
             print('Поместите файл с текстом в корневую папку программы.')
             s = input('Укажите название файла: ') + '.txt'
-            with open(s, 'r', encoding='utf-8') as f:
+            with open(s, 'r', encoding='utf-8') as f: 
                 data = f.read()
             d = code_1.to_morse(data)
             print("Морзе: ", d)
             print("Текст в файле: ", data)
         save_as_txt = input('Хотите сохранить ваше сообщение в .txt файл? (y/n): ')
         if save_as_txt == "y":
-            with open("code_" + str(datetime.now()), 'x') as c: # создание файла с уникальным названием
-                c.write(d)
+            open("code_" + str(datetime.now()), 'x').write(d) # создание файла с уникальным названием
+            
         else:
             continue
 
@@ -80,14 +80,13 @@ while True:
         elif select_input_type == 2:
             print('Поместите файл с текстом в корневую папку программы.')
             s = input('Укажите название файла: ') + '.txt'
-            with open(s, 'r', encoding='utf-8') as f:
+            with open(s, 'r', encoding='utf-8') as f: # чтение информации с файла
                 data = f.read()
             print("Декодированный текст: ", decode.from_morse(data))
             print("Текст в файле: ", data)
         save_as_txt = input('Хотите сохранить ваше сообщение в .txt файл? (y/n): ')
         if save_as_txt == "y":
-            with open("decode_" + str(datetime.now()), 'x') as c: # создание файла с уникальным названием
-                c.write(d)
+            open("decode_" + str(datetime.now()), 'x').write(d)
         else:
             continue
 
