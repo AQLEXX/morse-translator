@@ -67,7 +67,7 @@ while True:
             print("Текст в файле: ", data)
         save_as_txt = input('Хотите сохранить ваше сообщение в .txt файл? (y/n): ')
         if save_as_txt == "y":
-            with open("code" + str(datetime.now()), 'x') as c:
+            with open("code_" + str(datetime.now()), 'x') as c: # создание файла с уникальным названием
                 c.write(d)
         else:
             continue
@@ -84,6 +84,12 @@ while True:
                 data = f.read()
             print("Декодированный текст: ", decode.from_morse(data))
             print("Текст в файле: ", data)
+        save_as_txt = input('Хотите сохранить ваше сообщение в .txt файл? (y/n): ')
+        if save_as_txt == "y":
+            with open("decode_" + str(datetime.now()), 'x') as c: # создание файла с уникальным названием
+                c.write(d)
+        else:
+            continue
 
 
 
